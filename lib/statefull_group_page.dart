@@ -66,7 +66,8 @@ class _StateFullGroupState extends State<StatefulGroup> {
             child: Text('点我'),
           ),
           body: _currentIndex == 0
-              ? RefreshIndicator(
+              ?
+          RefreshIndicator(
                   child: ListView(
                     children: <Widget>[
                       Container(
