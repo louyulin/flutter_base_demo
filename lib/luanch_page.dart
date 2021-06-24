@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 void main() {
   runApp(LaunchPage());
 }
-
+//需要使用launchurl插件
 class LaunchPage extends StatefulWidget {
   @override
   _LaunchPageState createState() => _LaunchPageState();

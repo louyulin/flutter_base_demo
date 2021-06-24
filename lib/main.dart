@@ -4,6 +4,7 @@ import 'package:flutter_base_demo/statefull_group_page.dart';
 
 import 'Flutter_layout_page.dart';
 import 'ResourcePage.dart';
+import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
 import 'less_group_page.dart';
 import 'luanch_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         'gensture': (BuildContext context) => GesturePage(),
         'resourcepage': (BuildContext context) => ResourcePage(),
         'launchpage':(BuildContext context) => LaunchPage(),
+        'lifecylepage':(BuildContext context) => WidgetLifecycle(),
       },
     );
   }
@@ -68,6 +70,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('gesturepage手势使用', GesturePage(), 'gensture'),
           _item('资源文件使用', ResourcePage(), 'resourcepage'),
           _item('打开第三方app', LaunchPage(), 'launchpage'),
+          _item('Flutter生命周期', WidgetLifecycle(), 'lifecylepage'),
         ],
       ),
     );
