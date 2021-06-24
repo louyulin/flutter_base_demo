@@ -3,8 +3,10 @@ import 'package:flutter_base_demo/plugin_use.dart';
 import 'package:flutter_base_demo/statefull_group_page.dart';
 
 import 'Flutter_layout_page.dart';
+import 'ResourcePage.dart';
 import 'gesture_page.dart';
 import 'less_group_page.dart';
+import 'luanch_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         'ful': (BuildContext context) => StatefulGroup(),
         'plug': (BuildContext context) => PluginUse(),
         'layout': (BuildContext context) => FlutterLayoutPage(),
-        'gensture': (BuildContext context) => GesturePage()
+        'gensture': (BuildContext context) => GesturePage(),
+        'resourcepage': (BuildContext context) => ResourcePage(),
+        'launchpage':(BuildContext context) => LaunchPage(),
       },
     );
   }
@@ -51,7 +55,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           ),
           SwitchListTile(
               value: byName,
-              title: Text('${byName?'':'不'}通过路由名跳转'),
+              title: Text('${byName ? '' : '不'}通过路由名跳转'),
               onChanged: (value) {
                 setState(() {
                   byName = value;
@@ -62,6 +66,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('plug使用', PluginUse(), 'plug'),
           _item('layout基础', FlutterLayoutPage(), 'layout'),
           _item('gesturepage手势使用', GesturePage(), 'gensture'),
+          _item('资源文件使用', ResourcePage(), 'resourcepage'),
+          _item('打开第三方app', LaunchPage(), 'launchpage'),
         ],
       ),
     );
@@ -71,10 +77,11 @@ class _RouteNavigatorState extends State<RouteNavigator> {
     return Container(
       child: RaisedButton(
         onPressed: () {
-          if(byName){
-            Navigator.pushNamed(context , routeName);
-          }else{
-            Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+          if (byName) {
+            Navigator.pushNamed(context, routeName);
+          } else {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => page));
           }
         },
         child: Text(title),
