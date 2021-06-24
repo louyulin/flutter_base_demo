@@ -10,20 +10,42 @@ import 'less_group_page.dart';
 import 'luanch_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(DynamicTheme());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class DynamicTheme extends StatefulWidget {
+  @override
+  _DynamicThemeState createState() => _DynamicThemeState();
+}
+
+class _DynamicThemeState extends State<DynamicTheme> {
+  Brightness brightness = Brightness.dark;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: brightness,
+        primarySwatch: Colors.blue
       ),
       home: Scaffold(
-        body: RouteNavigator(),
+        body: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                setState(() {
+                  if (brightness == Brightness.dark) {
+                    brightness = Brightness.light;
+                  } else {
+                    brightness = Brightness.dark;
+                  }
+                });
+              },
+              child: Text('切换主图'),
+            ),
+            RouteNavigator()
+          ],
+        ),
       ),
       routes: <String, WidgetBuilder>{
         'less': (BuildContext context) => LessGroupPage(),
@@ -32,8 +54,8 @@ class MyApp extends StatelessWidget {
         'layout': (BuildContext context) => FlutterLayoutPage(),
         'gensture': (BuildContext context) => GesturePage(),
         'resourcepage': (BuildContext context) => ResourcePage(),
-        'launchpage':(BuildContext context) => LaunchPage(),
-        'lifecylepage':(BuildContext context) => WidgetLifecycle(),
+        'launchpage': (BuildContext context) => LaunchPage(),
+        'lifecylepage': (BuildContext context) => WidgetLifecycle(),
       },
     );
   }
