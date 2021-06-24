@@ -5,30 +5,13 @@ void main() {
   runApp(PluginUse());
 }
 
-class PluginUse extends StatelessWidget {
-  // This widget is the root of your application.
+
+class PluginUse extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '如何使用Flutter包和插件',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  _PluginUseState createState() => _PluginUseState();
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _PluginUseState extends State<PluginUse> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -41,7 +24,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
+        title: Text('如何使用flutter包和插件开发'),
       ),
       body: Center(
         child: Column(

@@ -28,6 +28,12 @@ class _StateFullGroupState extends State<StatefulGroup> {
         ),
         home: Scaffold(
           appBar: AppBar(
+            leading: GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back),
+            ),
             title: Text('StateLessWidget与基础组件'),
           ),
           bottomNavigationBar: BottomNavigationBar(
