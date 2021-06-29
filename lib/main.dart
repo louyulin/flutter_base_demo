@@ -3,6 +3,7 @@ import 'package:flutter_base_demo/plugin_use.dart';
 import 'package:flutter_base_demo/statefull_group_page.dart';
 
 import 'Flutter_layout_page.dart';
+import 'PhotoApp.dart';
 import 'ResourcePage.dart';
 import 'flutter_widget_lifecycle.dart';
 import 'gesture_page.dart';
@@ -20,14 +21,16 @@ class DynamicTheme extends StatefulWidget {
 
 class _DynamicThemeState extends State<DynamicTheme> {
   Brightness brightness = Brightness.dark;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: brightness,
-        primarySwatch: Colors.blue
-      ),
+          //全局设置字体
+          //fontFamily: 'Rubik',
+          brightness: brightness,
+          primarySwatch: Colors.blue),
       home: Scaffold(
         body: Column(
           children: <Widget>[
@@ -56,6 +59,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'resourcepage': (BuildContext context) => ResourcePage(),
         'launchpage': (BuildContext context) => LaunchPage(),
         'lifecylepage': (BuildContext context) => WidgetLifecycle(),
+        'photoApp': (BuildContext context) => PhotoAppPage(),
       },
     );
   }
@@ -93,6 +97,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('资源文件使用', ResourcePage(), 'resourcepage'),
           _item('打开第三方app', LaunchPage(), 'launchpage'),
           _item('Flutter生命周期', WidgetLifecycle(), 'lifecylepage'),
+          _item('拍照app', PhotoAppPage(), 'photoApp'),
         ],
       ),
     );
